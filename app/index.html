@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="paypalConverter" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Internet Stores</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.min.css">
+
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+</head>
+
+<body ng-controller="MainController">
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <h1 class="lead">{{hello}}</h1>
+
+    <form class="form-inline" name="myForm">
+      <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="input.amount">
+          </div>
+          <div class="input-group">
+            <select name="currency" ng-model="input.currency">
+              <option value="CAD">CAD</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="showConverted(input.amount,input.currency)">Transfer cash</button>
+    </form>
+
+    <div class="result">{{message}}</div>
+
+    <script src="components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

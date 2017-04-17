@@ -1,0 +1,10 @@
+{
+    "name": "PaypalConverter",
+    "version": "1.0.0",
+    "main": "app/index.html",
+    "dependencies": {
+        "bootstrap": "latest",
+        "angular": "latest"
+    },
+    "appPath": "app"
+}
