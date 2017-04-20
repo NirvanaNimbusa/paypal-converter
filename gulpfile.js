@@ -57,15 +57,19 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs'))
 });
 
 gulp.task('clean:dist', function() {
   return del.sync('dist');
 });
 
+gulp.task('clean:docs', function() {
+  return del.sync('docs');
+});
+
 gulp.task('build', function (callback) {
-  runSequence('clean:dist',
+  runSequence('clean:docs',
     ['sass', 'useref'],
     callback
   )
