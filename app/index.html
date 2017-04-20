@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Internet Stores</title>
+    <title>Paypal Converter</title>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,27 +27,29 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <main class="flex-container">
+      <h1 class="lead">Welcome to the paypal converter</h1>
 
-    <h1 class="lead">{{hello}}</h1>
+      <form class="form-inline converter-form" name="myForm">
+        <div class="form-group converter-form__input">
+          <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="input.amount" ng-required=true ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            </div>
+            <div class="input-group">
+              <select  class="form-control" name="input.currency" ng-model="input.currency" id="input.currency" ng-init="input.currency = options[0]" ng-options="option.name for option in options track by option.id">
+              </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary converter-form__submit" ng-click="showConverted(input.amount,input.currency)" ng-disabled="myForm.$invalid">Convert</button>
+      </form>
 
-    <form class="form-inline" name="myForm">
-      <div class="form-group">
-        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-          <div class="input-group">
-            <div class="input-group-addon">$</div>
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="input.amount">
-          </div>
-          <div class="input-group">
-            <select name="currency" ng-model="input.currency">
-              <option value="CAD">CAD</option>
-              <option value="USD">USD</option>
-            </select>
-          </div>
-      </div>
-      <button type="submit" class="btn btn-primary" ng-click="showConverted(input.amount,input.currency)">Transfer cash</button>
-    </form>
+      <div class="result">{{message}}{{total | currency}}</div>
+    </main>
 
-    <div class="result">{{message}}</div>
+
+    <footer>Crafted by Kevin.</footer>
 
     <script src="components/angular/angular.min.js"></script>
     <script src="app.js"></script>
