@@ -56,6 +56,8 @@ npm start
 
 Now browse to the app at [`localhost:8000/index.html`][local-app-url].
 
+Online version can be found [here][app-link].
+
 ## Serving the Application Files
 
 While Angular is client-side-only technology and it is possible to create Angular web apps that
@@ -128,3 +130,4 @@ For more information on AngularJS please check out [angularjs.org][angularjs].
 [selenium]: http://docs.seleniumhq.org/
 [travis]: https://travis-ci.org/
 [travis-docs]: https://docs.travis-ci.com/user/getting-started
+[app-link]: https://kkhenriquez.github.io/paypal-converter
