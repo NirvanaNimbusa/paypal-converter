@@ -27,9 +27,11 @@
       <h1 class="lead">Welcome to the paypal converter</h1>
 
       <form class="form-inline converter-form" name="myForm">
+        <div class="row">
+          <div class="col-xs-12">
         <div class="form-group converter-form__input">
           <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-            <div class="input-group">
+            <div class="input-group converter-form__input--amount">
               <div class="input-group-addon">$</div>
               <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="input.amount" ng-required=true ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
             </div>
@@ -37,6 +39,8 @@
               <select  class="form-control" name="input.currency" ng-model="input.currency" id="input.currency" ng-init="input.currency = options[0]" ng-options="option.name for option in options track by option.id">
               </select>
             </div>
+        </div>
+        </div>
         </div>
         <button type="submit" class="btn btn-primary converter-form__submit" ng-click="showConverted(input.amount,input.currency)" ng-disabled="myForm.$invalid">Convert</button>
       </form>
