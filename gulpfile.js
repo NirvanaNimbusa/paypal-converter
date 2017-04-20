@@ -68,9 +68,14 @@ gulp.task('clean:docs', function() {
   return del.sync('docs');
 });
 
+gulp.task('modernizr-2', function() {
+	return gulp.src('app/js/modernizr-2.6.2.min.js')
+	.pipe(gulp.dest('docs/js'))
+});
+
 gulp.task('build', function (callback) {
   runSequence('clean:docs',
-    ['sass', 'useref'],
+    ['sass', 'useref', 'modernizr-2'],
     callback
   )
 });
