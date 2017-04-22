@@ -19,7 +19,7 @@ angular.module('paypalConverter.convert', [])
   ];
   var rate = 0;
   var paypal_comission = 0.9456;
-  var paypal_conv_comission = 0.9624;
+  var paypal_conv_comission = null;
   var multicaja_comission = 10;
   var multicaja_conv_comission = 0.9755;
     convertService.getConversionRates().then(function(response) {
@@ -29,21 +29,31 @@ angular.module('paypalConverter.convert', [])
       alert("Some error ocurred");
     });
 
+    // $scope.showRates = function() {
+    //   $scope.
+    // }
+
+    //$scope.cad_rate = 1 / ($scope.data.rates.CAD);
+
     $scope.showConverted = function(value, currency) {
       var usd_clp = $scope.data.rates.CLP;
       switch (currency.name) {
         case 'CAD':
           rate = 1 / ($scope.data.rates.CAD);
+          paypal_conv_comission = 0.9617;
           break;
         case 'USD':
           rate = 1;
+          paypal_conv_comission = 1;
           break;
         default:
           rate = 1;
       }
+      $scope.direct = value * rate * usd_clp;
       $scope.total = ((value * paypal_comission * rate * paypal_conv_comission) - multicaja_comission) * usd_clp * multicaja_conv_comission;
       $scope.message = "Your converted amount is ";
-      $scop
+      $scope.direct_message = "* Direct conversion is ";
+
     }
 
 }]);

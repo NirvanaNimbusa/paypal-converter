@@ -11,7 +11,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paypal Converter</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="converter_icon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="converter_icon.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="converter_icon@2x.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Vaani:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="stylesheet" href="css/styles.min.css">
 
@@ -27,29 +31,40 @@
       <h1 class="lead">Welcome to the paypal converter</h1>
 
       <form class="form-inline converter-form" name="myForm">
-        <div class="row">
-          <div class="col-xs-12">
-        <div class="form-group converter-form__input">
-          <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+        <div class="converter-form__input">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
             <div class="input-group converter-form__input--amount">
               <div class="input-group-addon">$</div>
               <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="input.amount" ng-required=true ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
             </div>
-            <div class="input-group">
-              <select  class="form-control" name="input.currency" ng-model="input.currency" id="input.currency" ng-init="input.currency = options[0]" ng-options="option.name for option in options track by option.id">
-              </select>
-            </div>
-        </div>
-        </div>
+          </div>
+          <div class="form-group">
+            <select  class="form-control" name="input.currency" ng-model="input.currency" id="input.currency" ng-init="input.currency = options[0]" ng-options="option.name for option in options track by option.id">
+            </select>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary converter-form__submit" ng-click="showConverted(input.amount,input.currency)" ng-disabled="myForm.$invalid">Convert</button>
       </form>
 
-      <div class="result">{{message}}{{total | currency}}</div>
+      <div class="info">
+        <div class="info__result">{{message}}{{total | currency}}</div>
+        <div class="info__rates">
+          <p>Today's Rates:</p>
+          <ul class="info__rates-list">
+            <li>1 CAD -> {{ 1 / data.rates.CAD | number: 2}} USD</li>
+            <li>1 USD -> {{ data.rates.CLP | number: 2}} CLP</li>
+          </ul>
+        </div>
+        <div class="info__direct-rate">
+          <p>{{direct_message}} {{direct | currency}}</p>
+        </div>
+      </div>
+
     </main>
 
 
-    <footer>Crafted by Kevin.</footer>
+    <footer>Crafted by <a href="http://kkhenriquez.github.io/home" target="_blank">Kevin.</a></footer>
 
     <script src="js/main.min.js"></script>
 

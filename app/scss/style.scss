@@ -1,4 +1,8 @@
 //Variables
+$green: #03D1Aa;
+$pink: #EE3768;
+$font: 'Mukta Vaani', sans-serif;
+$font2: 'Muli', sans-serif;
 
 //Layout Classes
 
@@ -8,6 +12,11 @@ body {
 	min-height: 100vh;
   align-items: center;
   overflow-x: hidden;
+  background-color: $green;
+  color: #ffffff;
+  font-family: $font2;
+  letter-spacing: 0.01em;
+  font-size: 17px;
 }
 
 .flex-container {
@@ -28,9 +37,55 @@ main {
   padding: 3em 2em;
 }
 
+h1.lead {
+  font-size: 1.61em;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: darken($green, 15%);
+}
+
+a:focus, a:hover {
+    color: darken($green, 15%);
+    text-decoration: underline;
+}
+
 .converter-form {
   margin-bottom: 2em;
 }
 .converter-form__input {
-  margin-right: 1em;
+  //margin-right: 1em;
+  display: inline;
+  //width: 100%;
+}
+
+.btn-primary {
+  background-color: $pink;
+  border-color: darken($pink, 5%);
+
+  &:hover {
+    background-color: darken($pink, 15%);
+    border-color: darken($pink, 15%);
+  }
+
+  &:focus {
+    background-color: darken($pink, 15%);
+    border-color: darken($pink, 15%);
+  }
+}
+
+.btn-primary[disabled]:hover {
+  background-color: darken($pink, 15%);
+  border-color: darken($pink, 15%);
+}
+
+.info {
+  div:not(:last-child) {
+    margin-bottom: 1.35em;
+  }
+}
+
+footer {
+  font-size: 0.8em;
 }

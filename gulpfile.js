@@ -73,9 +73,14 @@ gulp.task('modernizr-2', function() {
 	.pipe(gulp.dest('docs/js'))
 });
 
+gulp.task('copy-icons', function() {
+	return gulp.src('app/*.png')
+	.pipe(gulp.dest('docs'))
+});
+
 gulp.task('build', function (callback) {
   runSequence('clean:docs',
-    ['sass', 'useref', 'modernizr-2'],
+    ['sass', 'useref', 'modernizr-2', 'copy-icons'],
     callback
   )
 });
