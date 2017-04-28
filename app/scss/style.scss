@@ -60,6 +60,11 @@ a:focus, a:hover {
   //width: 100%;
 }
 
+input[type='text'],
+select {
+  font-size: 100%;
+}
+
 .btn-primary {
   background-color: $pink;
   border-color: darken($pink, 5%);
