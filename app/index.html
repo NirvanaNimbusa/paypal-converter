@@ -35,6 +35,10 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+    </div>
     <main class="flex-container">
       <h1 class="lead">Welcome to the paypal converter</h1>
 
@@ -79,6 +83,10 @@
     <script src="app.js"></script>
     <script src="controller.js"></script>
     <!-- endbuild -->
+
+    <script type="text/javascript">
+      document.getElementById("loader-wrapper").className += "loaded";
+    </script>
 
 </body>
 

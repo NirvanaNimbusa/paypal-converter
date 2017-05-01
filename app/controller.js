@@ -23,6 +23,13 @@ angular.module('paypalConverter.convert', [])
   var multicaja_comission = 10;
   var multicaja_conv_comission = 0.9755;
 
+  convertService.getConversionRates().then(function(response) {
+    $scope.data = response.data;
+  }, function(response){
+    console.log('Some error ocurred');
+    alert("Some error ocurred");
+  });
+
     // $scope.showRates = function() {
     //   $scope.
     // }
@@ -31,30 +38,24 @@ angular.module('paypalConverter.convert', [])
 
     $scope.showConverted = function(value, currency) {
 
-      convertService.getConversionRates().then(function(response) {
-        $scope.data = response.data;
-      }, function(response){
-        console.log('Some error ocurred');
-        alert("Some error ocurred");
-      }).then(function() {
-        var usd_clp = $scope.data.rates.CLP;
-        switch (currency.name) {
-          case 'CAD':
-            rate = 1 / ($scope.data.rates.CAD);
-            paypal_conv_comission = 0.9617;
-            break;
-          case 'USD':
-            rate = 1;
-            paypal_conv_comission = 1;
-            break;
-          default:
-            rate = 1;
-        }
-        $scope.direct = value * rate * usd_clp;
-        $scope.total = ((value * paypal_comission * rate * paypal_conv_comission) - multicaja_comission) * usd_clp * multicaja_conv_comission;
-        $scope.message = "Your converted amount is ";
-        $scope.direct_message = "* Direct conversion is ";
-      });
+      var usd_clp = $scope.data.rates.CLP;
+      switch (currency.name) {
+        case 'CAD':
+          rate = 1 / ($scope.data.rates.CAD);
+          paypal_conv_comission = 0.9617;
+          break;
+        case 'USD':
+          rate = 1;
+          paypal_conv_comission = 1;
+          break;
+        default:
+          rate = 1;
+      }
+
+      $scope.direct = value * rate * usd_clp;
+      $scope.total = ((value * paypal_comission * rate * paypal_conv_comission) - multicaja_comission) * usd_clp * multicaja_conv_comission;
+      $scope.message = "Your converted amount is ";
+      $scope.direct_message = "* Direct conversion is ";
 
     }
 
