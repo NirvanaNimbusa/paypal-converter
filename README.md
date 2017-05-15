@@ -4,7 +4,7 @@ A UI to show your balance in paypal converted to multicaja.cl
 ## About what the app does
 
 This is a small project dedicated for remote workers, especially for those who work from Chile, but the idea
-can be applied anywhere. It uses a currency exchange API to calculate how much the money you get paid is worth in your local currency, taking into account the fees usually associated with currency exchanges services. In the case of Chile, a popular service is [Multicaja.cl][multicaja]
+can be applied anywhere. It uses a currency exchange API to calculate how much the money you get paid is worth in your local currency (only CLP for now), taking into account the fees usually associated with currency exchanges services. In the case of Chile, a popular service is [Multicaja.cl][multicaja]
 
 ### TODO
 
