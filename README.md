@@ -1,6 +1,15 @@
 # `paypal-converter`
 A UI to show your balance in paypal converted to multicaja.cl
 
+## About what the app does
+
+This is a small project dedicated for remote workers, especially for those who work from Chile, but the idea
+can be applied anywhere. It uses a currency exchange API to calculate how much the money you get paid is worth in your local currency, taking into account the fees usually associated with currency exchanges services. In the case of Chile, a popular service is [Multicaja.cl][multicaja]
+
+### TODO
+
+Add more currency options and look into other exchange services
+
 ## Getting Started
 
 To get you started you can simply clone the `paypal-converter` repository and install the dependencies:
@@ -131,3 +140,4 @@ For more information on AngularJS please check out [angularjs.org][angularjs].
 [travis]: https://travis-ci.org/
 [travis-docs]: https://docs.travis-ci.com/user/getting-started
 [app-link]: https://kkhenriquez.github.io/paypal-converter
+[multicaja]: https://www.multicaja.cl/paypal/
