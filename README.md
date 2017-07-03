@@ -1,6 +1,12 @@
 # `paypal-converter`
 A UI to show your balance in paypal converted to multicaja.cl
 
+### Supported by BrowserStack
+
+![BrowserStack](https://cdn.rawgit.com/kkhenriquez/paypal-converter/74a7123a/media/BrowserStackLogo.png)
+
+Instant access to all real mobile and desktop browsers. Say goodbye to your lab of devices and virtual machines. [https://www.browserstack.com/](https://www.browserstack.com/)
+
 ## About what the app does
 
 This is a small project dedicated for remote workers, especially for those who work from Chile, but the idea
